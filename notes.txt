@@ -1,0 +1,39 @@
+API - interface to facilitate communication between two different softwares.
+
+API key :
+
+This api key confirms that the user wanting to fetch the data is fully authorized or valid user.
+
+
+GEOLOCATION API:
+This is used to get the geographical position of the user.
+
+navigator.geolocation       -> we basically checks if our system supports geolocation api , then only 
+                                move to the further step.
+
+
+basically by getCurrePosition, the system asks the user to share his current position.
+if position is shared , then the callback function will run which contains the position.
+navigator.geolocation.getCurrentPosition((position)=>{
+    lati = position.coords.latitude;
+    long = position.coords.longitude;
+})
+
+
+
+POSTMAN TOOL:
+-> it is an API development Tool which helps to build , modify and testing of api's
+
+
+
+OPTIONAL CHAINING OPERATOR:   ?.
+-> If we want to access any property from the JSON object , we use optional chaining operator.
+-> suppose we had object named data and inside that we had property named temp. we can access it by
+    using dot operator like data.temp but suppose if property temp is not there, it gives the error.
+
+-> so here comes the use of optional chaining operator.  data?.temp
+-> ? means it firstly checks if the temp property is present inside data or not . if not then it 
+    does'nt give error , it just returns undefined , else it retures the required value.
+
+
+
