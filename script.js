@@ -54,7 +54,7 @@ function switchTab(clickedTab){
         else{
             // currently at searchTab , just now shift to yourWeather tab.
             searchForm.classList.remove("active") ;
-            userInfoContainer.remove("active") ;
+            userInfoContainer.classList.remove("active") ;
             // As we are at yourweather tab , so display weather . lets search for coordinates saved in local storage.
             getfromSessionStorage() ;
         }
