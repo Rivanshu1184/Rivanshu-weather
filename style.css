@@ -14,12 +14,16 @@
  */
 
 
-* , *::after , *::before{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Merriweather Sans" , sans-serif;
-    /* font-family:Georgia, 'Times New Roman', Times, serif; */
+ 
+ 
+ * , *::after , *::before{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+body{
+        font-family: "Sofia" , sans-serif;
 }
 
 /* globally defining the colors: */
@@ -33,18 +37,28 @@
 /* OUTER WRAPPER CSS */
 .wrapper{
     width: 100vw;
-    height: 100vh ;
+    height: 54rem ;
     color: var(--colorLight2) ;
     /* background-image: linear-gradient(160deg , #112D4e 0% , #3f72af 100%); */
-    background-image:linear-gradient(#cc2b5e , #753a88);
+    /* background-image:linear-gradient(#cc2b5e , #753a88); */
+    background: url(./assets/back.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Sofia", sans-serif;
 }
 
 
 h1{
     text-align: center;
     padding-top: 20px;
-    font-size: 4rem;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: 5px; ;
+    /* font-family: "Sofia" , sans-serif; */
+}
+
+h1 span{
+    /* font-family: "Sofia" , sans-serif; */
+    font-size: 2rem;
 }
 
 
@@ -60,7 +74,8 @@ h1{
 
 .tab{
     cursor: pointer;
-    font-size: 0.875rem;
+    /* font-size: 0.975rem; */
+    font-size: 1rem;
     letter-spacing: 1.75px;
     padding: 5px 8px;
 }
@@ -178,6 +193,7 @@ h1{
 .user-info-container p[data-temp]{
     font-size: 2.75rem;
     font-weight: 700;
+    font-family: "Trirong", serif;
 }
 
  
@@ -211,7 +227,7 @@ h1{
 
 .parameter p:first-of-type{
     font-size: 1.15rem ;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: 600;
 }
 

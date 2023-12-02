@@ -54,18 +54,18 @@ function switchTab(clickedTab){
         else{
             // currently at searchTab , just now shift to yourWeather tab.
             searchForm.classList.remove("active") ;
-            userInfoContainer.remove("active") ;
+            userInfoContainer.classList.remove("active") ;
             // As we are at yourweather tab , so display weather . lets search for coordinates saved in local storage.
             getfromSessionStorage() ;
         }
     }
 }
 
-userTab.addEventListener('click' , ()=>{
+userTab.addEventListener('click',()=>{
     switchTab(userTab) ;
 })
 
-searchTab.addEventListener('click' , ()=>{
+searchTab.addEventListener('click',()=>{
     switchTab(searchTab) ;
 })
 
@@ -116,6 +116,7 @@ async function fetchUserWeatherInfo(coordinates){
 
 // rendering function
 function renderWeatherInfo(data){
+    console.log(data) ;
 
     // firstly we have to fetch the elements
     const cityName = document.querySelector("[data-cityName]") ;
@@ -129,16 +130,16 @@ function renderWeatherInfo(data){
  
     
     // now fetching elements from data object and put it in UI elements.
-    cityName.innerText = data?.name ;
-    countryIcon.src = `https://flagcdn.com/144x108/${data?.sys?.country.toLowerCase()}.png` ;
-    desc.innerText = data?.weather?.[0]?.description ;
-    weatherIcon.src = `https://openweathermap.org/img/w/${data?.weather?.[0]?.icon}.png` ;
-    temp.innerText = `${data?.main?.temp} °C` ;
-    windspeed.innerText = `${data?.wind?.speed} m/s` ;
-    humidity.innerText = `${data?.main?.humidity}%` ;
-    cloudiness.innerText = `${data?.clouds?.all}%` ;
+    cityName.innerText=data?.name ;
+    countryIcon.src=`https://flagcdn.com/144x108/${data?.sys?.country.toLowerCase()}.png` ;
+    desc.innerText=data?.weather?.[0]?.description ;
+    weatherIcon.src=`https://openweathermap.org/img/w/${data?.weather?.[0]?.icon}.png` ;
+    temp.innerText=`${data?.main?.temp}°C` ;
+    windspeed.innerText=`${data?.wind?.speed}m/s` ;
+    humidity.innerText=`${data?.main?.humidity}%` ;
+    cloudiness.innerText=`${data?.clouds?.all}%` ;
 
-    userInfoContainer.classList.add("active") ;
+    // userInfoContainer.classList.add("active") ;
 }
 
 
@@ -169,7 +170,7 @@ grantAccessButton.addEventListener("click" , getLocation) ;
 
 const searchInput = document.querySelector("[data-searchInput]") ;
 
-searchForm.addEventListener("submit", (event)=>{
+searchForm.addEventListener("submit",(event)=>{
     event.preventDefault() ;
 
     let cityName = searchInput.value ;
@@ -191,7 +192,6 @@ async function fetchSearchWeatherInfo(city){
         let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`) ;
         let data = await response.json();
 
-        console.log(data) ;
         // now data has arrived, just remove loader now 
         loadingScreen.classList.remove("active") ;
 
